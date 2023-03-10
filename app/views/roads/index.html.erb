@@ -5,28 +5,32 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>All roads</title>
 </head>
-<body class="container mt-5">
-<h3>Choose the roads what do you want to repair</h3>
-<form method="get" action="specified/" class="container mb-5">
-  <input type="text" value="<%= @idrn %>" name="idrn" style="display: none">
-  <% sum = 0.0 %>
-  <% @roads.each do |r| %>
-    <label for="<%= r.id %>"> pk <%= r.begin_pk %> - pk <%= r.end_pk %></label>
-    <input type="checkbox" class="form-check" name="all[]" id="<%= r.id %>" value="<%= r.id %>">
-    <% sum += (((r.end_pk - r.begin_pk) * 1000) * r.width * (r.profondeur / 100)) %>
-  <% end %>
-  <input type="submit" value="Next >" class="btn btn-primary">
-</form>
-<table class="table table-hover table-danger mt-5">
+<body class="mt-5">
+<div class="container w-50">
+  <h3>Choose the roads what do you want to repair</h3>
+  <form method="get" action="specified/" class="container mb-5 w-25">
+    <input type="text" value="<%= @idrn %>" name="idrn" style="display: none">
+    <% sum = 0.0 %>
+    <% @roads.each do |r| %>
+      <p class="row"><label for="<%= r.id %>"> pk <%= r.begin_pk %> - pk <%= r.end_pk %></label><input type="checkbox" class="form-check" name="all[]" id="<%= r.id %>" value="<%= r.id %>"></p>
+      <% sum += (((r.end_pk - r.begin_pk) * 1000) * r.width * (r.profondeur / 1000)) %>
+    <% end %>
+    <input type="submit" value="Next >" class="btn btn-primary">
+  </form>
+</div>
+<table class="table table-hover table-primary mt-5">
   <thead>
     <td>Name</td>
     <td>Penalty</td>
-    <td>Speed</td>
+    <td>Speed/Day</td>
+    <td>Duration</td>
     <td>Employee</td>
-    <td>Price</td>
+    <td>PU</td>
     <td>Age</td>
     <td>Quality</td>
-    <td>CubeMeter*Price</td>
+    <td>CubeMeter</td>
+    <td>Price</td>
+    <td>Quality/PU</td>
     <td>Quality/Price</td>
   </thead>
   <tbody>
@@ -34,13 +38,16 @@
       <tr>
         <td><%= p.name %></td>
         <td><%= p.penalty %></td>
-        <td><%= p.speed %> Hours</td>
+        <td><%= p.speed %> m3</td>
+        <td><%= sum/p.speed %> Days</td>
         <td><%= p.emp %></td>
         <td><%= p.price %> Ariary</td>
         <td><%= p.anc %></td>
         <td><%= p.formulas %></td>
-        <td><%= p.price*sum %></td>
+        <td><%= sum %> m3</td>
+        <td><%= p.price*sum %> Ariary</td>
         <td><%= p.formulas/p.price %></td>
+        <td><%= p.formulas/(p.price*sum) %></td>
       </tr>
     <% end %>
   </tbody>

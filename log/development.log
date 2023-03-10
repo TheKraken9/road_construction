@@ -4369,3 +4369,2396 @@ Processing by RoadsController#index as HTML
 Completed 200 OK in 23ms (Views: 15.1ms | ActiveRecord: 1.7ms | Allocations: 5384)
 
 
+Started GET "/" for 127.0.0.1 at 2023-03-10 08:30:17 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (3.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ArticlesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering articles/index.html.erb within layouts/application
+  Rendered articles/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 461)
+  Rendered layout layouts/application.html.erb (Duration: 78.7ms | Allocations: 21994)
+Completed 200 OK in 107ms (Views: 84.1ms | ActiveRecord: 0.0ms | Allocations: 28107)
+
+
+Started GET "/" for 127.0.0.1 at 2023-03-10 08:32:22 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (1.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (2.1ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 984)
+  Rendered layout layouts/application.html.erb (Duration: 74.2ms | Allocations: 22652)
+Completed 200 OK in 159ms (Views: 79.7ms | ActiveRecord: 16.6ms | Allocations: 63488)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 08:32:30 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (1.9ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (2.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (3.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 721)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 2356)
+Completed 200 OK in 86ms (Views: 11.1ms | ActiveRecord: 20.1ms | Allocations: 35710)
+
+
+Started GET "/specified/?idrn=1&all%5B%5D=3" for 127.0.0.1 at 2023-03-10 08:32:33 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"1", "all"=>["3"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where id = 3[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (1.3ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 589)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 2215)
+Completed 200 OK in 28ms (Views: 11.8ms | ActiveRecord: 3.6ms | Allocations: 5613)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 08:32:37 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.4ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 115)
+  Rendered layout layouts/application.html.erb (Duration: 3.6ms | Allocations: 1506)
+Completed 200 OK in 9ms (Views: 4.2ms | ActiveRecord: 0.9ms | Allocations: 3029)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 08:32:52 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.8ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.6ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 1498)
+Completed 200 OK in 16ms (Views: 9.0ms | ActiveRecord: 1.4ms | Allocations: 2932)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 08:33:13 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 1503)
+Completed 200 OK in 21ms (Views: 8.3ms | ActiveRecord: 2.7ms | Allocations: 3508)
+
+
+Started GET "/specified/?idrn=1&all%5B%5D=1" for 127.0.0.1 at 2023-03-10 08:33:18 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"1", "all"=>["1"]}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where id = 1[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 83)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 1479)
+Completed 200 OK in 22ms (Views: 8.3ms | ActiveRecord: 3.0ms | Allocations: 4090)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 08:33:22 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.7ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.6ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 1485)
+Completed 200 OK in 16ms (Views: 7.7ms | ActiveRecord: 1.3ms | Allocations: 2904)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 08:33:41 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 1497)
+Completed 200 OK in 11ms (Views: 4.4ms | ActiveRecord: 1.2ms | Allocations: 3485)
+
+
+Started GET "/specified/?idrn=1&all%5B%5D=1&all%5B%5D=2" for 127.0.0.1 at 2023-03-10 08:33:46 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"1", "all"=>["1", "2"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where id = 1[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where id = 2[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 87)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 1468)
+Completed 200 OK in 24ms (Views: 7.0ms | ActiveRecord: 3.9ms | Allocations: 4527)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 08:33:49 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.7ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.6ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 1500)
+Completed 200 OK in 16ms (Views: 8.2ms | ActiveRecord: 1.3ms | Allocations: 2919)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 08:33:52 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (1.2ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 1473)
+Completed 200 OK in 27ms (Views: 11.4ms | ActiveRecord: 3.7ms | Allocations: 4101)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 08:34:00 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (1.3ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 83)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 1467)
+Completed 200 OK in 28ms (Views: 8.4ms | ActiveRecord: 4.9ms | Allocations: 4707)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 08:34:07 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.4ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 111)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1494)
+Completed 200 OK in 7ms (Views: 3.0ms | ActiveRecord: 1.0ms | Allocations: 2913)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 10:32:31 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (1.0ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.9ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 984)
+  Rendered layout layouts/application.html.erb (Duration: 66.2ms | Allocations: 23148)
+Completed 200 OK in 182ms (Views: 73.0ms | ActiveRecord: 18.7ms | Allocations: 63983)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 10:32:39 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 721)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 2335)
+Completed 200 OK in 44ms (Views: 7.0ms | ActiveRecord: 7.6ms | Allocations: 35689)
+
+
+Started GET "/specified/?idrn=1&all%5B%5D=1" for 127.0.0.1 at 2023-03-10 10:32:57 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"1", "all"=>["1"]}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where id = 1[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 615)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 2244)
+Completed 200 OK in 18ms (Views: 4.9ms | ActiveRecord: 2.9ms | Allocations: 5642)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 10:33:48 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (1.1ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 984)
+  Rendered layout layouts/application.html.erb (Duration: 54.6ms | Allocations: 23043)
+Completed 200 OK in 138ms (Views: 59.8ms | ActiveRecord: 12.8ms | Allocations: 63884)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 10:33:51 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 747)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 2382)
+Completed 200 OK in 48ms (Views: 8.2ms | ActiveRecord: 7.8ms | Allocations: 35732)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 10:34:32 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 702)
+  Rendered layout layouts/application.html.erb (Duration: 4.0ms | Allocations: 2527)
+Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 1.2ms | Allocations: 5403)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 10:35:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (1.0ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (1.1ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 3.1ms | Allocations: 984)
+  Rendered layout layouts/application.html.erb (Duration: 58.8ms | Allocations: 22690)
+Completed 200 OK in 177ms (Views: 65.3ms | ActiveRecord: 17.9ms | Allocations: 63535)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 10:35:24 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 747)
+  Rendered layout layouts/application.html.erb (Duration: 3.4ms | Allocations: 2376)
+Completed 200 OK in 42ms (Views: 4.9ms | ActiveRecord: 8.7ms | Allocations: 35722)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 10:37:21 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (1.1ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (2.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1114)
+  Rendered layout layouts/application.html.erb (Duration: 61.2ms | Allocations: 22726)
+Completed 200 OK in 222ms (Views: 67.6ms | ActiveRecord: 26.4ms | Allocations: 79826)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 10:38:42 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1114)
+  Rendered layout layouts/application.html.erb (Duration: 43.1ms | Allocations: 22953)
+Completed 200 OK in 129ms (Views: 45.9ms | ActiveRecord: 13.9ms | Allocations: 80053)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 10:38:48 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.7ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 640)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 2290)
+Completed 200 OK in 49ms (Views: 11.1ms | ActiveRecord: 6.8ms | Allocations: 19395)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 10:39:13 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (1.1ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.7ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 984)
+  Rendered layout layouts/application.html.erb (Duration: 54.0ms | Allocations: 23013)
+Completed 200 OK in 126ms (Views: 58.3ms | ActiveRecord: 12.4ms | Allocations: 63849)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 10:39:18 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 774)
+  Rendered layout layouts/application.html.erb (Duration: 3.5ms | Allocations: 2406)
+Completed 200 OK in 39ms (Views: 4.9ms | ActiveRecord: 7.0ms | Allocations: 35760)
+
+
+Started GET "/specified/?idrn=1&all%5B%5D=1" for 127.0.0.1 at 2023-03-10 10:40:00 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"1", "all"=>["1"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where id = 1[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 641)
+  Rendered layout layouts/application.html.erb (Duration: 7.4ms | Allocations: 2281)
+Completed 200 OK in 24ms (Views: 10.5ms | ActiveRecord: 3.0ms | Allocations: 5660)
+
+
+Started GET "/specified/?idrn=1&all%5B%5D=1&all%5B%5D=3" for 127.0.0.1 at 2023-03-10 10:40:06 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"1", "all"=>["1", "3"]}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where id = 1[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where id = 3[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 1482)
+Completed 200 OK in 24ms (Views: 7.2ms | ActiveRecord: 3.7ms | Allocations: 4626)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 10:40:15 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (1.2ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 126)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 1504)
+Completed 200 OK in 21ms (Views: 6.7ms | ActiveRecord: 3.7ms | Allocations: 4140)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6&all%5B%5D=7" for 127.0.0.1 at 2023-03-10 10:40:25 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6", "7"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where id = 7[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (1.3ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 1476)
+Completed 200 OK in 28ms (Views: 7.2ms | ActiveRecord: 5.3ms | Allocations: 5191)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 10:41:28 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.2ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 1.4ms | Allocations: 595)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2446)
+Completed 200 OK in 12ms (Views: 7.3ms | ActiveRecord: 0.5ms | Allocations: 4733)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 10:41:41 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.5ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 595)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2441)
+Completed 200 OK in 15ms (Views: 9.2ms | ActiveRecord: 1.1ms | Allocations: 4775)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:42:12 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 717)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 2351)
+Completed 200 OK in 14ms (Views: 5.6ms | ActiveRecord: 1.9ms | Allocations: 4981)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:43:57 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 728)
+  Rendered layout layouts/application.html.erb (Duration: 9.6ms | Allocations: 2568)
+Completed 200 OK in 25ms (Views: 13.3ms | ActiveRecord: 2.8ms | Allocations: 5417)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:44:11 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 725)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 2547)
+Completed 200 OK in 13ms (Views: 7.8ms | ActiveRecord: 1.3ms | Allocations: 5386)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:44:21 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 725)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 2574)
+Completed 200 OK in 25ms (Views: 13.9ms | ActiveRecord: 2.6ms | Allocations: 5409)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:44:46 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 725)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2571)
+Completed 200 OK in 20ms (Views: 10.5ms | ActiveRecord: 1.9ms | Allocations: 5406)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:44:50 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 2.1ms | Allocations: 725)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 2580)
+Completed 200 OK in 15ms (Views: 8.7ms | ActiveRecord: 1.3ms | Allocations: 5415)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:45:49 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 724)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2570)
+Completed 200 OK in 12ms (Views: 6.3ms | ActiveRecord: 1.1ms | Allocations: 5406)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:46:08 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 723)
+  Rendered layout layouts/application.html.erb (Duration: 10.2ms | Allocations: 2554)
+Completed 200 OK in 26ms (Views: 14.3ms | ActiveRecord: 2.6ms | Allocations: 5389)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:47:21 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 723)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | Allocations: 2548)
+Completed 200 OK in 17ms (Views: 9.1ms | ActiveRecord: 1.9ms | Allocations: 5383)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:47:27 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 722)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 2580)
+Completed 200 OK in 11ms (Views: 5.6ms | ActiveRecord: 0.9ms | Allocations: 5415)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:47:53 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.8ms | Allocations: 723)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 2575)
+Completed 200 OK in 17ms (Views: 8.6ms | ActiveRecord: 2.2ms | Allocations: 5410)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:48:07 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.6ms | Allocations: 723)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 2566)
+Completed 200 OK in 18ms (Views: 9.0ms | ActiveRecord: 1.8ms | Allocations: 5401)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:48:12 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 116)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 1494)
+Completed 200 OK in 15ms (Views: 5.7ms | ActiveRecord: 2.8ms | Allocations: 3519)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:48:12 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 116)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1491)
+Completed 200 OK in 9ms (Views: 3.0ms | ActiveRecord: 1.4ms | Allocations: 3453)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:48:42 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 726)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2572)
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 1.1ms | Allocations: 5344)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:48:54 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 726)
+  Rendered layout layouts/application.html.erb (Duration: 9.8ms | Allocations: 2557)
+Completed 200 OK in 25ms (Views: 13.5ms | ActiveRecord: 2.7ms | Allocations: 5392)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 10:49:14 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 728)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 2608)
+Completed 200 OK in 13ms (Views: 6.8ms | ActiveRecord: 1.3ms | Allocations: 5448)
+
+
+Started GET "/specified/?idrn=2&all%5B%5D=4&all%5B%5D=5" for 127.0.0.1 at 2023-03-10 10:49:27 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"2", "all"=>["4", "5"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where id = 4[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where id = 5[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 635)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | Allocations: 2281)
+Completed 200 OK in 27ms (Views: 11.7ms | ActiveRecord: 3.2ms | Allocations: 5973)
+
+
+Started GET "/specified/?idrn=2&all%5B%5D=4&all%5B%5D=5" for 127.0.0.1 at 2023-03-10 10:49:44 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"2", "all"=>["4", "5"]}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where id = 4[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where id = 5[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 103)
+  Rendered layout layouts/application.html.erb (Duration: 5.1ms | Allocations: 1472)
+Completed 200 OK in 21ms (Views: 6.9ms | ActiveRecord: 3.0ms | Allocations: 4558)
+
+
+Started GET "/specified/?idrn=2&all%5B%5D=4&all%5B%5D=5" for 127.0.0.1 at 2023-03-10 10:50:13 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"2", "all"=>["4", "5"]}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where id = 4[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where id = 5[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 644)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2478)
+Completed 200 OK in 15ms (Views: 5.5ms | ActiveRecord: 2.3ms | Allocations: 6321)
+
+
+Started GET "/specified/?idrn=2&all%5B%5D=4&all%5B%5D=5" for 127.0.0.1 at 2023-03-10 10:50:23 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"2", "all"=>["4", "5"]}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where id = 4[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where id = 5[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 644)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 2484)
+Completed 200 OK in 21ms (Views: 9.6ms | ActiveRecord: 2.2ms | Allocations: 6378)
+
+
+Started GET "/specified/?idrn=2&all%5B%5D=4&all%5B%5D=5" for 127.0.0.1 at 2023-03-10 10:51:06 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"2", "all"=>["4", "5"]}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect * from roads where id = 4[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where id = 5[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 645)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 2470)
+Completed 200 OK in 21ms (Views: 8.9ms | ActiveRecord: 2.8ms | Allocations: 6365)
+
+
+Started GET "/specified/?idrn=2&all%5B%5D=4&all%5B%5D=5" for 127.0.0.1 at 2023-03-10 10:51:18 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"2", "all"=>["4", "5"]}
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where id = 4[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where id = 5[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 3.4ms | Allocations: 644)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 2469)
+Completed 200 OK in 34ms (Views: 17.0ms | ActiveRecord: 2.8ms | Allocations: 6363)
+
+
+Started GET "/specified/?idrn=2&all%5B%5D=4&all%5B%5D=5" for 127.0.0.1 at 2023-03-10 10:51:27 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"2", "all"=>["4", "5"]}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect * from roads where id = 4[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where id = 5[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 644)
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 2499)
+Completed 200 OK in 32ms (Views: 13.2ms | ActiveRecord: 4.5ms | Allocations: 6395)
+
+
+Started GET "/specified/?idrn=2&all%5B%5D=4&all%5B%5D=5" for 127.0.0.1 at 2023-03-10 10:52:40 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"2", "all"=>["4", "5"]}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where id = 4[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where id = 5[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 643)
+  Rendered layout layouts/application.html.erb (Duration: 4.9ms | Allocations: 2490)
+Completed 200 OK in 16ms (Views: 6.7ms | ActiveRecord: 2.3ms | Allocations: 6384)
+
+
+Started GET "/specified/?idrn=2&all%5B%5D=4&all%5B%5D=5" for 127.0.0.1 at 2023-03-10 10:52:54 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"2", "all"=>["4", "5"]}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where id = 4[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where id = 5[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.1ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 644)
+  Rendered layout layouts/application.html.erb (Duration: 3.8ms | Allocations: 2478)
+Completed 200 OK in 12ms (Views: 5.3ms | ActiveRecord: 1.5ms | Allocations: 6372)
+
+
+Started GET "/specified/?idrn=2&all%5B%5D=4&all%5B%5D=5" for 127.0.0.1 at 2023-03-10 10:52:57 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"2", "all"=>["4", "5"]}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where id = 4[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where id = 5[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 644)
+  Rendered layout layouts/application.html.erb (Duration: 5.8ms | Allocations: 2481)
+Completed 200 OK in 17ms (Views: 7.8ms | ActiveRecord: 1.6ms | Allocations: 6375)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 13:28:25 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.5ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (1.4ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 593)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 2244)
+Completed 200 OK in 59ms (Views: 15.7ms | ActiveRecord: 16.1ms | Allocations: 7479)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 13:28:28 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.3ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 732)
+  Rendered layout layouts/application.html.erb (Duration: 10.7ms | Allocations: 2357)
+Completed 200 OK in 29ms (Views: 14.0ms | ActiveRecord: 3.3ms | Allocations: 5029)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 14:12:26 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.5ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 1470)
+Completed 200 OK in 28ms (Views: 5.7ms | ActiveRecord: 8.7ms | Allocations: 6028)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 14:12:31 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 4.1ms | Allocations: 1491)
+Completed 200 OK in 14ms (Views: 4.8ms | ActiveRecord: 2.4ms | Allocations: 3463)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 14:14:39 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1485)
+Completed 200 OK in 9ms (Views: 3.2ms | ActiveRecord: 1.3ms | Allocations: 3441)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 14:17:42 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 1482)
+Completed 200 OK in 11ms (Views: 4.0ms | ActiveRecord: 1.5ms | Allocations: 3438)
+
+
+Started GET "/specified/?idrn=1&all%5B%5D=1" for 127.0.0.1 at 2023-03-10 14:18:05 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"1", "all"=>["1"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where id = 1[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 77)
+  Rendered layout layouts/application.html.erb (Duration: 3.0ms | Allocations: 1455)
+Completed 200 OK in 13ms (Views: 3.7ms | ActiveRecord: 3.0ms | Allocations: 4036)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 14:28:11 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.7ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 1479)
+Completed 200 OK in 33ms (Views: 5.6ms | ActiveRecord: 11.4ms | Allocations: 6339)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 14:31:13 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 6.3ms | Allocations: 1500)
+Completed 200 OK in 18ms (Views: 7.0ms | ActiveRecord: 2.7ms | Allocations: 3456)
+
+
+Started GET "/specified/?idrn=1&all%5B%5D=1" for 127.0.0.1 at 2023-03-10 14:35:33 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"1", "all"=>["1"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where id = 1[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 77)
+  Rendered layout layouts/application.html.erb (Duration: 2.2ms | Allocations: 1449)
+Completed 200 OK in 10ms (Views: 2.8ms | ActiveRecord: 2.5ms | Allocations: 4016)
+
+
+Started GET "/specified/?idrn=1&all%5B%5D=1" for 127.0.0.1 at 2023-03-10 14:36:00 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"1", "all"=>["1"]}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where id = 1[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 77)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 1461)
+Completed 200 OK in 18ms (Views: 9.2ms | ActiveRecord: 2.0ms | Allocations: 4028)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 14:51:47 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.5ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 1498)
+Completed 200 OK in 32ms (Views: 6.8ms | ActiveRecord: 7.9ms | Allocations: 5852)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 14:51:50 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.3ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | Allocations: 1476)
+Completed 200 OK in 22ms (Views: 8.7ms | ActiveRecord: 2.9ms | Allocations: 3432)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 15:05:06 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 104)
+  Rendered layout layouts/application.html.erb (Duration: 5.3ms | Allocations: 1500)
+Completed 200 OK in 41ms (Views: 6.3ms | ActiveRecord: 10.0ms | Allocations: 6361)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 15:09:37 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (15.0ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.4ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 3.2ms | Allocations: 575)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 2441)
+Completed 200 OK in 44ms (Views: 15.5ms | ActiveRecord: 15.5ms | Allocations: 4715)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 15:09:41 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 708)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | Allocations: 2339)
+Completed 200 OK in 18ms (Views: 10.5ms | ActiveRecord: 1.5ms | Allocations: 4964)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 15:11:14 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (1.2ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (1.2ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 967)
+  Rendered layout layouts/application.html.erb (Duration: 82.0ms | Allocations: 23116)
+Completed 200 OK in 208ms (Views: 89.9ms | ActiveRecord: 19.0ms | Allocations: 63941)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 15:11:15 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 778)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2419)
+Completed 200 OK in 45ms (Views: 5.0ms | ActiveRecord: 7.5ms | Allocations: 35741)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 15:27:45 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (1.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (2.3ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1118)
+  Rendered layout layouts/application.html.erb (Duration: 63.4ms | Allocations: 22952)
+Completed 200 OK in 220ms (Views: 69.8ms | ActiveRecord: 26.5ms | Allocations: 80020)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 15:27:49 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.7ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.8ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 2.3ms | Allocations: 623)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | Allocations: 2267)
+Completed 200 OK in 51ms (Views: 11.4ms | ActiveRecord: 8.3ms | Allocations: 19362)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:27:54 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 83)
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 1480)
+Completed 200 OK in 21ms (Views: 7.3ms | ActiveRecord: 3.5ms | Allocations: 4077)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:28:15 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 705)
+  Rendered layout layouts/application.html.erb (Duration: 5.2ms | Allocations: 2536)
+Completed 200 OK in 14ms (Views: 7.2ms | ActiveRecord: 1.5ms | Allocations: 5871)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 15:28:22 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 6.4ms | Allocations: 1491)
+Completed 200 OK in 19ms (Views: 7.5ms | ActiveRecord: 2.1ms | Allocations: 3511)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 15:28:28 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 83)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | Allocations: 1470)
+Completed 200 OK in 8ms (Views: 2.7ms | ActiveRecord: 1.3ms | Allocations: 3342)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 15:29:34 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) as formulas from form order by ((4*(speed+emp))+((1/2)*anc)-(4*penalty))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 100)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1491)
+Completed 200 OK in 9ms (Views: 3.2ms | ActiveRecord: 1.5ms | Allocations: 3439)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:29:39 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 1485)
+Completed 200 OK in 21ms (Views: 7.3ms | ActiveRecord: 3.4ms | Allocations: 4081)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:30:19 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1497)
+Completed 200 OK in 10ms (Views: 3.6ms | ActiveRecord: 1.7ms | Allocations: 4092)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:33:47 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 3.0ms | Allocations: 733)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 2561)
+Completed 200 OK in 27ms (Views: 13.0ms | ActiveRecord: 3.7ms | Allocations: 5966)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:34:05 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 733)
+  Rendered layout layouts/application.html.erb (Duration: 9.1ms | Allocations: 2562)
+Completed 200 OK in 26ms (Views: 12.6ms | ActiveRecord: 3.1ms | Allocations: 6053)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 15:34:11 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 650)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2266)
+Completed 200 OK in 16ms (Views: 5.5ms | ActiveRecord: 2.5ms | Allocations: 6250)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 15:34:59 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 641)
+  Rendered layout layouts/application.html.erb (Duration: 9.3ms | Allocations: 2499)
+Completed 200 OK in 31ms (Views: 13.2ms | ActiveRecord: 4.5ms | Allocations: 6596)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 15:42:49 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (1.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 641)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2472)
+Completed 200 OK in 33ms (Views: 6.3ms | ActiveRecord: 11.6ms | Allocations: 9639)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:42:56 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 733)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 2385)
+Completed 200 OK in 20ms (Views: 8.8ms | ActiveRecord: 2.5ms | Allocations: 5651)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:50:35 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.1ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (1.2ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 733)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2573)
+Completed 200 OK in 32ms (Views: 5.5ms | ActiveRecord: 10.7ms | Allocations: 9083)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:51:14 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 733)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2567)
+Completed 200 OK in 12ms (Views: 5.5ms | ActiveRecord: 1.6ms | Allocations: 6036)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:51:19 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | Allocations: 1512)
+Completed 200 OK in 11ms (Views: 3.3ms | ActiveRecord: 1.8ms | Allocations: 4171)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 15:51:21 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (1.2ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 641)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | Allocations: 2275)
+Completed 200 OK in 28ms (Views: 11.3ms | ActiveRecord: 4.3ms | Allocations: 6101)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 15:52:35 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 642)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 2479)
+Completed 200 OK in 18ms (Views: 7.4ms | ActiveRecord: 2.4ms | Allocations: 6575)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 15:53:16 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 642)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2488)
+Completed 200 OK in 28ms (Views: 12.5ms | ActiveRecord: 3.4ms | Allocations: 6570)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 15:54:34 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 645)
+  Rendered layout layouts/application.html.erb (Duration: 5.7ms | Allocations: 2495)
+Completed 200 OK in 28ms (Views: 8.5ms | ActiveRecord: 3.1ms | Allocations: 6583)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 15:55:28 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 642)
+  Rendered layout layouts/application.html.erb (Duration: 6.0ms | Allocations: 2516)
+Completed 200 OK in 17ms (Views: 7.9ms | ActiveRecord: 2.0ms | Allocations: 6602)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 15:57:08 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 642)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2488)
+Completed 200 OK in 16ms (Views: 6.5ms | ActiveRecord: 2.2ms | Allocations: 6570)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 15:58:45 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 2.8ms | Allocations: 642)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 2485)
+Completed 200 OK in 32ms (Views: 13.5ms | ActiveRecord: 4.5ms | Allocations: 6568)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 15:59:13 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 2.9ms | Allocations: 734)
+  Rendered layout layouts/application.html.erb (Duration: 8.9ms | Allocations: 2365)
+Completed 200 OK in 27ms (Views: 12.4ms | ActiveRecord: 3.9ms | Allocations: 5631)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 16:00:56 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (1.2ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 734)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2571)
+Completed 200 OK in 21ms (Views: 7.2ms | ActiveRecord: 3.9ms | Allocations: 6054)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 16:01:49 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.2ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 734)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2586)
+Completed 200 OK in 12ms (Views: 6.2ms | ActiveRecord: 1.4ms | Allocations: 6055)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 16:04:47 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1494)
+Completed 200 OK in 11ms (Views: 3.3ms | ActiveRecord: 2.9ms | Allocations: 4153)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6" for 127.0.0.1 at 2023-03-10 16:04:55 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 641)
+  Rendered layout layouts/application.html.erb (Duration: 3.7ms | Allocations: 2269)
+Completed 200 OK in 16ms (Views: 5.4ms | ActiveRecord: 4.0ms | Allocations: 6093)
+
+
+Started GET "/specified/?idrn=3&all%5B%5D=6&all%5B%5D=8" for 127.0.0.1 at 2023-03-10 16:10:19 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"3", "all"=>["6", "8"]}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where id = 6[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where id = 8[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/specified_controller.rb:36:in `block in index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 87)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | Allocations: 1468)
+Completed 200 OK in 30ms (Views: 8.3ms | ActiveRecord: 5.2ms | Allocations: 5200)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 16:10:35 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1518)
+Completed 200 OK in 12ms (Views: 3.1ms | ActiveRecord: 3.2ms | Allocations: 4122)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 16:40:56 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.5ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 573)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | Allocations: 2224)
+Completed 200 OK in 26ms (Views: 6.9ms | ActiveRecord: 8.3ms | Allocations: 7383)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 16:40:56 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.3ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 2.6ms | Allocations: 1480)
+Completed 200 OK in 6ms (Views: 3.2ms | ActiveRecord: 0.7ms | Allocations: 2972)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 16:41:42 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.6ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.6ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 91)
+  Rendered layout layouts/application.html.erb (Duration: 2.8ms | Allocations: 1483)
+Completed 200 OK in 7ms (Views: 3.3ms | ActiveRecord: 1.1ms | Allocations: 2892)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 16:41:45 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (2.2ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 1500)
+Completed 200 OK in 21ms (Views: 8.3ms | ActiveRecord: 4.4ms | Allocations: 3473)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 16:44:45 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 2.7ms | Allocations: 733)
+  Rendered layout layouts/application.html.erb (Duration: 9.7ms | Allocations: 2570)
+Completed 200 OK in 24ms (Views: 13.6ms | ActiveRecord: 2.3ms | Allocations: 5350)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 16:45:48 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:26:in `block in index'
+  [1m[35m (1.2ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2) as formulas from form order by (2 * ((4*speed)+(2*emp)+((1/2)*anc)) * ((4*(speed+emp))+((1/2)*anc)-(4*penalty)) + 2)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 1491)
+Completed 200 OK in 22ms (Views: 8.2ms | ActiveRecord: 3.7ms | Allocations: 4150)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 16:46:15 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, ((4*speed)+(2*emp)+((1/2)*anc)) as formulas from form order by ((4*speed)+(2*emp)+((1/2)*anc))/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 110)
+  Rendered layout layouts/application.html.erb (Duration: 2.5ms | Allocations: 1485)
+Completed 200 OK in 10ms (Views: 3.0ms | ActiveRecord: 2.7ms | Allocations: 3441)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 17:29:59 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.4ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.4ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 573)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 2218)
+Completed 200 OK in 29ms (Views: 7.7ms | ActiveRecord: 6.9ms | Allocations: 7336)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 17:30:05 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (2.2ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (((4*speed)+(3*anc)-(4*penalty))*1000) as formulas from form order by (((4*speed)+(3*anc)-(4*penalty))*1000)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 100)
+  Rendered layout layouts/application.html.erb (Duration: 3.2ms | Allocations: 1478)
+Completed 200 OK in 16ms (Views: 4.0ms | ActiveRecord: 4.3ms | Allocations: 3470)
+
+
+Started GET "/specified/?idrn=1&all%5B%5D=1&all%5B%5D=2" for 127.0.0.1 at 2023-03-10 17:31:10 +0300
+Processing by SpecifiedController#index as HTML
+  Parameters: {"idrn"=>"1", "all"=>["1", "2"]}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/specified_controller.rb:4:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/specified_controller.rb:13:in `index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where id = 1[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.4ms)[0m  [1m[34mselect * from roads where id = 2[0m
+  ↳ app/controllers/specified_controller.rb:24:in `block in index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/specified_controller.rb:29:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (((4*speed)+(3*anc)-(4*penalty))*1000) as formulas from form order by (((4*speed)+(3*anc)-(4*penalty))*1000)/price desc[0m
+  ↳ app/controllers/specified_controller.rb:49:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering specified/index.html.erb within layouts/application
+  Rendered specified/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 644)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | Allocations: 2281)
+Completed 200 OK in 14ms (Views: 5.7ms | ActiveRecord: 2.8ms | Allocations: 5900)
+
+
+Started GET "/home" for 127.0.0.1 at 2023-03-10 17:31:52 +0300
+Processing by ProviderController#index as HTML
+  [1m[36mProvider Load (0.3ms)[0m  [1m[34mSELECT "providers".* FROM "providers"[0m
+  ↳ app/controllers/provider_controller.rb:3:in `index'
+  [1m[36mRn Load (0.3ms)[0m  [1m[34mSELECT "rns".* FROM "rns"[0m
+  ↳ app/controllers/provider_controller.rb:4:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering provider/index.html.erb within layouts/application
+  Rendered provider/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 95)
+  Rendered layout layouts/application.html.erb (Duration: 4.7ms | Allocations: 1476)
+Completed 200 OK in 10ms (Views: 5.5ms | ActiveRecord: 0.6ms | Allocations: 2969)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 17:31:54 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.8ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (((4*speed)+(3*anc)-(4*penalty))*1000) as formulas from form order by (((4*speed)+(3*anc)-(4*penalty))*1000)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 1.2ms | Allocations: 100)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 1484)
+Completed 200 OK in 20ms (Views: 7.1ms | ActiveRecord: 3.0ms | Allocations: 3431)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 17:38:57 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.2ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (((2*speed)+(2*anc)-(2*penalty))*1000) as formulas from form order by (((2*speed)+(2*anc)-(2*penalty))*1000)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.4ms | Allocations: 100)
+  Rendered layout layouts/application.html.erb (Duration: 11.0ms | Allocations: 1487)
+Completed 200 OK in 35ms (Views: 11.7ms | ActiveRecord: 8.9ms | Allocations: 6441)
+
+
+Started GET "/roads?rn=1" for 127.0.0.1 at 2023-03-10 17:44:12 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"1"}
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 1[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from formula where idnationalroute = 1[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.0ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (((4*speed)+(3*anc)-(4*penalty))*1000) as formulas from form order by (((4*speed)+(3*anc)-(4*penalty))*1000)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 100)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 1487)
+Completed 200 OK in 36ms (Views: 17.3ms | ActiveRecord: 2.5ms | Allocations: 3417)
+
+
+Started GET "/roads?rn=2" for 127.0.0.1 at 2023-03-10 17:49:31 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"2"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.5ms)[0m  [1m[34mselect * from roads where idrns = 2[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.3ms)[0m  [1m[34mselect * from formula where idnationalroute = 2[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (0.9ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (((2*speed)+(2*anc)-(2*penalty))*1000) as formulas from form order by (((2*speed)+(2*anc)-(2*penalty))*1000)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 100)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 1493)
+Completed 200 OK in 18ms (Views: 5.7ms | ActiveRecord: 2.3ms | Allocations: 3424)
+
+
+Started GET "/roads?rn=3" for 127.0.0.1 at 2023-03-10 17:49:43 +0300
+Processing by RoadsController#index as HTML
+  Parameters: {"rn"=>"3"}
+  [1m[35m (0.6ms)[0m  [1m[34mselect * from rns[0m
+  ↳ app/controllers/roads_controller.rb:5:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from roads where idrns = 3[0m
+  ↳ app/controllers/roads_controller.rb:13:in `index'
+  [1m[35m (0.7ms)[0m  [1m[34mselect * from formula where idnationalroute = 3[0m
+  ↳ app/controllers/roads_controller.rb:19:in `index'
+  [1m[35m (1.1ms)[0m  [1m[34mselect name, speed, emp, anc, penalty, price, (((speed)+(anc)-(penalty))*1000) as formulas from form order by (((speed)+(anc)-(penalty))*1000)/price desc[0m
+  ↳ app/controllers/roads_controller.rb:38:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering roads/index.html.erb within layouts/application
+  Rendered roads/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 100)
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 1472)
+Completed 200 OK in 40ms (Views: 12.0ms | ActiveRecord: 3.1ms | Allocations: 3402)
+
+

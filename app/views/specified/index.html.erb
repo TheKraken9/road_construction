@@ -5,23 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Specified</title>
 </head>
-<body class="container mt-5">
+<body class="mt-5">
 <% sum = 0.0 %>
+<a href="http://0.0.0.0:3000/home" class="text-danger ms-5">< Back</a>
 <% @alls.each do |r| %>
   <h4 class="text-center"> pk <%= r.begin_pk %> - pk <%= r.end_pk %></h4>
-  <% sum += (((r.end_pk - r.begin_pk) * 1000) * r.width * (r.profondeur / 100)) %>
+  <% sum += (((r.end_pk - r.begin_pk) * 1000) * r.width * (r.profondeur / 1000)) %>
 <% end %>
 
-<table class="table table-hover table-danger mt-5">
+<table class="table table-hover table-primary mt-5">
   <thead>
   <td>Name</td>
   <td>Penalty</td>
-  <td>Speed</td>
+  <td>Speed/Day</td>
+  <td>Duration</td>
   <td>Employee</td>
-  <td>Price</td>
+  <td>PU</td>
   <td>Age</td>
   <td>Quality</td>
-  <td>CubeMeter*Price</td>
+  <td>Price</td>
+  <td>CubeMeter</td>
+  <td>Quality/PU</td>
   <td>Quality/Price</td>
   </thead>
   <tbody>
@@ -29,17 +33,19 @@
     <tr>
       <td><%= p.name %></td>
       <td><%= p.penalty %></td>
-      <td><%= p.speed %> Hours</td>
+      <td><%= p.speed %> m3</td>
+      <td><%= sum/p.speed %> Days</td>
       <td><%= p.emp %></td>
       <td><%= p.price %> Ariary</td>
       <td><%= p.anc %></td>
       <td><%= p.formulas %></td>
-      <td><%= p.price*sum %></td>
+      <td><%= p.price*sum %> Ariary</td>
+      <td><%= sum %> m3</td>
       <td><%= p.formulas/p.price %></td>
+      <td><%= p.formulas/(p.price*sum) %></td>
     </tr>
   <% end %>
   </tbody>
 </table>
-<a href="http://0.0.0.0:3000/home">< Back</a>
 </body>
 </html>
