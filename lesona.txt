@@ -1,0 +1,4 @@
+create new model: bin/rails generate model Article title:string body:text
+always in singular
+
+migrate my model: bin/rails db:migrate

@@ -1,0 +1,45 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Welcome</title>
+</head>
+<body>
+  <h1 class="h1 text-center mb-5">Welcome</h1>
+  <h4 class="text-center mb-3">Lists of provider</h4>
+  <table class="table table-hover table-danger container mt-5">
+    <thead>
+      <td>Name</td>
+      <td>Date of creation</td>
+      <td>Number of employee</td>
+      <td>speed</td>
+      <td>Penalty</td>
+      <td>Price</td>
+    </thead>
+    <tbody>
+      <% @provider.each do |p| %>
+        <tr>
+          <td><%= p.name %></td>
+          <td><%= p.birthday %></td>
+          <td><%= p.emp %></td>
+          <td><%= p.speed %> Hours</td>
+          <td><%= p.penalty %></td>
+          <td><%= p.price %> Ariary</td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<h4 class="text-center mt-4 mb-3">Construct some roads</h4>
+  <form method="get" action="http://0.0.0.0:3000/roads" class="container text-center form">
+      <label for="National_Route">National Route : </label>
+      <select name="rn" class="form-select w-50 text-center mt-4 mb-5">
+        <% @rn.each do |r| %>
+          <option value="<%= r.id %>"><%= r.name %> | <%= r.begin_km %> - <%= r.end_km %></option>
+        <% end %>
+      </select>
+    <input type="submit" value="next >" class="btn btn-primary">
+  </form>
+
+</body>
+</html>
